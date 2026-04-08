@@ -1,5 +1,7 @@
 ![Alt Text](https://github.com/webxos/phalanx/blob/main/assets/logo.jpeg)]
 
+#PHALANX v3.0
+
 **README COMING SOON**
 
 Make sure all files are inside of a folder on your system:
