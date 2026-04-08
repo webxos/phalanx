@@ -2,7 +2,7 @@
 
 # PHALANX v3.0 (Under Development, MIT Open Source)
 
-**README COMING SOON**
+**README COMING SOON, USE AT YOUR OWN RISK**
 
 Make sure all files are inside of a folder on your system:
 
