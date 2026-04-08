@@ -1,6 +1,6 @@
 ![Alt Text](https://github.com/webxos/phalanx/blob/main/assets/logo.jpeg)
 
-# PHALANX v3.0
+# PHALANX v3.0 (Under Development, MIT Open Source)
 
 **README COMING SOON**
 
