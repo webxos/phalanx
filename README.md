@@ -1,4 +1,4 @@
-![Alt Text]((https://github.com/webxos/phalanx/blob/main/assets/logo.jpeg)](https://github.com/webxos/phalanx/blob/main/assets/logo.jpeg))
+![Alt Text](https://github.com/webxos/phalanx/blob/main/assets/logo.jpeg)](https://github.com/webxos/phalanx/blob/main/assets/logo.jpeg)
 
 **README COMING SOON**
 
