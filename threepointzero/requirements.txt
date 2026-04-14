@@ -1,0 +1,27 @@
+# PHALANX v3 – Python dependencies
+requests>=2.31.0
+pyyaml>=6.0
+rich>=13.7.0
+prompt_toolkit>=3.0.43
+
+# Web scraping (dynamic)
+beautifulsoup4>=4.12.0
+lxml>=4.9.0
+fake-useragent>=1.4.0
+playwright>=1.40.0          # for JS rendering
+
+# Polyglot runtimes
+wasmtime>=14.0.0            # WebAssembly
+
+# Autonomous Agent
+langgraph>=0.1.0
+langchain>=0.1.0
+langchain-ollama>=0.1.0
+chromadb>=0.5.0
+docker>=7.0.0
+
+# Testing
+pytest>=8.0.0
+
+# Optional
+# mariadb>=1.1.9
