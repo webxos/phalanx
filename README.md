@@ -1,7 +1,7 @@
 ![Alt Text](https://github.com/webxos/phalanx/blob/main/assets/logo.jpeg)
 
 # PHALANX v3.2 (Under Development, MIT Open Source)
-
+*x.com/when_robots_cry*
 **README COMING SOON, USE AT YOUR OWN RISK**
 
 Make sure all files are inside of a folder on your system:
