@@ -1,0 +1,25 @@
+services:
+  kali-sandbox:
+    image: kalilinux/kali-rolling
+    container_name: phalanx-kali-sandbox
+    networks:
+      - sandbox-net
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: tail -f /dev/null
+    tty: true
+    stdin_open: true
+
+  metasploitable2:
+    image: tleemcjr/metasploitable2:latest
+    container_name: phalanx-metasploitable2
+    networks:
+      - sandbox-net
+
+networks:
+  sandbox-net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
