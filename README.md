@@ -6,6 +6,8 @@
 
 **README COMING SOON, USE AT YOUR OWN RISK**
 
+# Launch Command
+
 Make sure all files are inside of a folder on your system:
 
 ```bash
