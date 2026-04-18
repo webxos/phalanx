@@ -20,6 +20,7 @@ chmod +x run.sh
 ./run.sh
 
 ```
+*To access all back end files and folders generated (including logs, reports, and soul.md) on launch locate the /.phalanx/ folder manually*
 
 # SCREENSHOTS:
 
