@@ -1,4 +1,4 @@
-This is an archive of version 3.0
+*This version 3.0 is decrepitated and for archive only*
 
 ![Alt Text](https://github.com/webxos/phalanx/blob/main/assets/logo.jpeg)
 
