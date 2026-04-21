@@ -24,8 +24,6 @@ chmod +x run.sh
 
 # SCREENSHOTS:
 
-![Alt Text](https://github.com/webxos/phalanx/blob/main/assets/screenshot5.png)
+![Alt Text](https://github.com/webxos/phalanx/blob/main/assets/screen4.png)
 
-![Alt Text](https://github.com/webxos/phalanx/blob/main/assets/screenshot6.png)
-
-![Alt Text](https://github.com/webxos/phalanx/blob/main/assets/screenshot7.png)
+![Alt Text](https://github.com/webxos/phalanx/blob/main/assets/screen5.png)
