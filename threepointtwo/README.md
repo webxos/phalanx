@@ -1,3 +1,5 @@
+*This version 3.2 is decrepitated and for archive only*
+
 ![Alt Text](https://github.com/webxos/phalanx/blob/main/assets/logo.jpeg)
 
 # PHALANX v3.2 (Under Development, MIT Open Source)
