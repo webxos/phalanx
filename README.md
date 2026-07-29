@@ -1,10 +1,11 @@
-# PHALANX v3.6 – Autonomous Pentesting Framework
+![Alt Text](https://github.com/webxos/phalanx/blob/main/assets/logo.jpeg)
+# PHALANX v3.6 – Autonomous Pentesting Framework (UNDER DEVELOPMENT)
 
 ![Version](https://img.shields.io/badge/version-3.6-blue)
 ![Python](https://img.shields.io/badge/python-3.10%2B-brightgreen)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
-**PHALANX** is an autonomous, AI‑driven penetration testing framework that combines multi‑agent swarms, a looped reasoning engine (Raptor), low‑level Windows evasion (WinStealth), and a real‑time War Room dashboard. It is designed for red teams, bug bounty hunters, and security researchers who need scalable, adaptive, and intelligent offensive security tooling.
+**PHALANX** is an open sourced MIT, autonomous, and AI‑driven penetration testing framework. Phalanx combines multi‑agent swarms, low‑level evasion, and a real‑time War Room dashboard. It is designed for red teams, bug bounty hunters, and security researchers who need scalable, adaptive, and intelligent offensive security tooling.
 
 > ⚠️ **Only use on systems you own or have explicit written permission to test.**
 
