@@ -1,0 +1,46 @@
+services:
+  kali-sandbox:
+    build:
+      context: .
+      dockerfile: Dockerfile.kali
+    image: phalanx-kali:latest
+    container_name: phalanx-kali
+    command: tail -f /dev/null
+    cap_add:
+      - NET_ADMIN
+    restart: unless-stopped
+    networks:
+      - phalanx-net
+    healthcheck:
+      test: ["CMD", "nmap", "--version"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    volumes:
+      - ./phalanx/tools:/opt/phalanx/tools:ro
+      - ./phalanx/wordlists:/opt/phalanx/wordlists:ro
+      - ./phalanx/scripts:/opt/phalanx/scripts:ro
+      - ./phalanx/sandbox-data:/root/.phalanx
+    environment:
+      - DEBIAN_FRONTEND=noninteractive
+      - OLLAMA_HOST=http://host.docker.internal:11434
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    stdin_open: true
+    tty: true
+  metasploitable2:
+    image: tleemcjr/metasploitable2:latest
+    container_name: phalanx-target
+    restart: unless-stopped
+    networks:
+      - phalanx-net
+    ports:
+      - "22:22"
+      - "80:80"
+      - "443:443"
+networks:
+  phalanx-net:
+    driver: bridge
+volumes:
+  ollama_data:

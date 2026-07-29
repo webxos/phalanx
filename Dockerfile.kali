@@ -1,0 +1,42 @@
+# PHALANX Kali Sandbox – Dockerfile.kali
+# Provides a Kali Linux container with all pentest tools required by PHALANX,
+# including Docker and Docker Compose (for nested container execution if needed).
+
+FROM kalilinux/kali-rolling
+
+# Explicitly set user to root (default, but explicit is safer for tools that need privileges)
+USER root
+
+# Prevent interactive prompts during package installation
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Retry full update + install up to 3 times with 10s sleep between attempts
+# --fix-missing tries alternative mirrors if a package is temporarily unavailable.
+# The loop breaks on successful installation; if it finishes without break,
+# we verify a key package (nmap) to ensure success and fail the build if missing.
+RUN for i in 1 2 3; do \
+        apt-get update -qq && \
+        apt-get install -y -qq --no-install-recommends --fix-missing \
+            nmap nikto whatweb gobuster ffuf wpscan sqlmap \
+            theharvester enum4linux exploitdb metasploit-framework impacket-scripts \
+            feroxbuster testssl.sh masscan git curl wget \
+            libpcap-dev build-essential python3-pip python3-dev \
+            jadx apktool radare2 dex2jar \
+            docker.io docker-compose \
+        && apt-get clean && rm -rf /var/lib/apt/lists/* \
+        && break || sleep 10; \
+    done; \
+    dpkg -l | grep -q nmap || (echo "Installation failed after 3 attempts" && exit 1)
+
+# (Optional) Install additional Python packages if needed
+# RUN pip3 install --no-cache-dir --break-system-packages <package>
+
+# Nested Docker requires mounting /var/run/docker.sock from the host – not done here.
+# The docker.io and docker-compose packages are included for convenience, but to use
+# them you must mount the host's docker socket when running this container.
+
+# Set working directory
+WORKDIR /opt/phalanx
+
+# Keep the container running (for interactive use)
+CMD ["tail", "-f", "/dev/null"]

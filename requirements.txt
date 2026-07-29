@@ -1,0 +1,88 @@
+# PHALANX v3.6 – Core Dependencies
+# After installation, run: playwright install chromium
+
+# ------------------------------------------------------------------
+# IMPORTANT: setuptools is pinned to <82 to avoid compatibility issues
+# with older pkg_resources and some dependencies (e.g., older torch,
+# sentence-transformers, langchain). This pin is applied before any
+# other packages to ensure a consistent build environment.
+# ------------------------------------------------------------------
+setuptools<82
+
+# ------------------------------------------------------------------
+# Terminal & UI
+# ------------------------------------------------------------------
+rich>=14.0.0,<15.0.0
+prompt-toolkit>=3.0.0,<4.0.0
+
+# ------------------------------------------------------------------
+# Web & HTTP
+# ------------------------------------------------------------------
+requests>=2.31.0,<3.0.0
+beautifulsoup4>=4.12.0,<5.0.0
+lxml>=5.0.0,<6.0.0
+fake-useragent>=1.5.0,<2.0.0
+playwright>=1.40.0,<1.50.0
+
+# ------------------------------------------------------------------
+# LLM & Agents
+# ------------------------------------------------------------------
+langchain-core>=0.2.0,<0.3.0
+langchain-ollama>=0.1.0,<0.2.0
+langgraph>=0.2.0,<0.3.0
+
+# ------------------------------------------------------------------
+# Utilities
+# ------------------------------------------------------------------
+python-dateutil>=2.8.2,<3.0.0
+pyyaml>=6.0,<7.0
+docker>=7.0.0,<8.0.0
+wasmtime>=20.0.0,<21.0.0
+pexpect>=4.9.0,<5.0.0
+
+# Data processing (used by PyTorch and other numeric ops)
+numpy>=1.24.0,<2.0.0
+
+# Embeddings & similarity (for get_relevant_tools)
+sentence-transformers>=3.0.0,<3.5.0
+scikit-learn>=1.3.0,<1.6.0
+
+# Defense & monitoring (network connections, process monitoring)
+psutil>=5.9.0,<6.0.0
+
+# Windows-specific low-level evasion (optional; safe on other platforms)
+# This package is filtered out on non‑Windows systems by run.sh.
+pywin32>=306,<310 ; sys_platform == 'win32'
+
+# Git integration for source‑hunt & defense logging
+gitpython>=3.1.0,<4.0.0
+
+# Reverse engineering helpers (Python packages)
+frida-tools>=12.0.0,<13.0.0
+
+# War Room – FastAPI dashboard server
+fastapi>=0.100.0,<1.0.0
+uvicorn[standard]>=0.23.0,<1.0.0
+python-multipart>=0.0.6,<0.1.0
+aiofiles>=23.0.0,<24.0.0
+
+# ------------------------------------------------------------------
+# Optional Dependencies (not required for core functionality)
+# ------------------------------------------------------------------
+# PyTorch for Looped Transformer (uncomment to enable)
+# torch>=2.1.0 --index-url https://download.pytorch.org/whl/cpu
+
+# PDF reporting (optional)
+# weasyprint>=60.0
+
+# Testing (only needed for development)
+# pytest>=8.0.0,<9.0.0
+
+# ------------------------------------------------------------------
+# Notes on system-level tools (not pip-installable):
+# - apktool, jadx, radare2, dex2jar are system packages and must be
+#   installed via your package manager (apt, brew, pacman, dnf) or manually.
+# - WinStealth is a C library, not pip-installable. It requires CMake
+#   and mingw-w64 to build. Build with: python phalanx_extra.py --build-winstealth
+#   or set PHALANX_SKIP_WINSTEALTH=1 to disable.
+# ------------------------------------------------------------------
