@@ -1,0 +1,57 @@
+# PHALANX v3.3 – Core dependencies
+# All packages pinned for reproducibility
+# Install PyTorch separately (CPU-only) using:
+#   pip install torch>=2.1.0 --index-url https://download.pytorch.org/whl/cpu
+
+# Rich terminal formatting
+rich>=14.0.0,<15.0.0
+
+# Prompt toolkit for TUI (interactive shell)
+prompt-toolkit>=3.0.0,<4.0.0
+
+# HTTP and web scraping
+requests>=2.31.0,<3.0.0
+beautifulsoup4>=4.12.0,<5.0.0
+lxml>=5.0.0,<6.0.0
+
+# LLM orchestration (LangChain + Ollama) – pinned to avoid breaking changes
+langchain-core>=0.2.0,<0.3.0
+langchain-ollama>=0.1.0,<0.2.0
+langgraph>=0.2.0,<0.3.0
+
+# Date/time utilities
+python-dateutil>=2.8.2,<3.0.0
+
+# JSON and YAML handling
+pyyaml>=6.0,<7.0
+
+# Testing (optional, but good for development)
+pytest>=8.0.0,<9.0.0
+
+# ------------------------------------------------------------------
+# Required for full functionality (no longer optional)
+# ------------------------------------------------------------------
+
+# Docker sandbox support (required for sandbox mode)
+docker>=7.0.0,<8.0.0
+
+# JavaScript rendering (for /scrape with use_js=True)
+# Pinned to avoid API breakage (Playwright updates often)
+playwright>=1.40.0,<1.50.0
+
+# WebAssembly execution (for polyglot wasm tools)
+wasmtime>=20.0.0,<21.0.0
+
+# Interactive session support (fallback for tmux)
+pexpect>=4.9.0,<5.0.0
+
+# ------------------------------------------------------------------
+# Mythos-style Looped Transformer (Recurrent-Depth / Looped Reasoning)
+# Install PyTorch CPU-only separately (not via requirements.txt)
+# See instructions above.
+# ------------------------------------------------------------------
+
+# ------------------------------------------------------------------
+# Post-installation steps (run after pip install):
+#   playwright install chromium
+# ------------------------------------------------------------------

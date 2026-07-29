@@ -1,0 +1,74 @@
+# PHALANX v3.3 – Docker Compose (no explicit subnet, auto-assigned by Docker)
+services:
+  kali-sandbox:
+    image: kalilinux/kali-rolling
+    container_name: phalanx-kali
+    command: tail -f /dev/null
+    cap_add:
+      - NET_ADMIN
+    restart: unless-stopped
+    networks:
+      - phalanx-net
+    healthcheck:
+      test: ["CMD", "nmap", "--version"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    volumes:
+      # Read-only mounts for tools, wordlists, scripts – safe for most tools.
+      # If a tool needs to write temporary files, mount an additional writable volume.
+      - ./phalanx/tools:/opt/phalanx/tools:ro
+      - ./phalanx/wordlists:/opt/phalanx/wordlists:ro
+      - ./phalanx/scripts:/opt/phalanx/scripts:ro
+      # Writable sandbox data volume for temporary files and runtime state
+      - ./phalanx/sandbox-data:/root/.phalanx
+    environment:
+      - DEBIAN_FRONTEND=noninteractive
+      - OLLAMA_HOST=http://ollama:11434
+    stdin_open: true
+    tty: true
+    depends_on:
+      - ollama
+
+  ollama:
+    image: ollama/ollama:latest
+    container_name: phalanx-ollama
+    ports:
+      - "11435:11434"          # Host port 11435 -> container 11434 (avoid conflict)
+    volumes:
+      - ollama_data:/root/.ollama
+    networks:
+      - phalanx-net
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "ollama", "list"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  metasploitable2:
+    image: tleemcjr/metasploitable2:latest
+    container_name: phalanx-target
+    restart: unless-stopped
+    networks:
+      - phalanx-net
+    # Healthcheck uses netstat to verify SSH listening (more reliable than nc)
+    healthcheck:
+      test: ["CMD-SHELL", "netstat -tln | grep -q ':22 '"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    ports:
+      - "2222:22"
+      - "8080:80"
+      - "4443:443"
+
+networks:
+  phalanx-net:
+    driver: bridge
+    # No explicit subnet – Docker will automatically choose a free range
+
+volumes:
+  ollama_data:
