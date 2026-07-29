@@ -7,6 +7,7 @@
 
 **PHALANX** is an open sourced MIT, autonomous, and AI‑driven penetration testing framework. Phalanx combines multi‑agent swarms, low‑level evasion, and a real‑time War Room dashboard. It is designed for red teams, bug bounty hunters, and security researchers who need scalable, adaptive, and intelligent offensive security tooling.
 
+> ⚠️ **Use at your own risk.**
 > ⚠️ **Only use on systems you own or have explicit written permission to test.**
 
 ---
