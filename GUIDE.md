@@ -5,6 +5,8 @@
 **License:** MIT  
 **Official Repo:** https://github.com/webxos/phalanx
 
+## 1. LEGAL NOTICE
+
 > ⚠️ **CRITICAL LEGAL & ETHICAL NOTICE**  
 > PHALANX is a powerful offensive security framework.  
 > **You may ONLY use it against systems you own or for which you have explicit, written authorization.**  
@@ -14,7 +16,7 @@
 
 ---
 
-## Table of Contents
+## 2. Table of Contents
 
 1. [Introduction](#1-introduction)
 2. [Prerequisites & Installation](#2-prerequisites--installation)
@@ -31,7 +33,7 @@
 
 ---
 
-## 1. Introduction
+## 3. Introduction
 
 **PHALANX** is an open-source, AI-driven autonomous penetration testing framework designed for Kali Linux (and compatible systems). It combines:
 
@@ -47,78 +49,6 @@
 This guide is written specifically for **bug bounty hunters and security researchers** who want to master PHALANX’s deep and advanced capabilities in **completely safe, authorized environments**.
 
 The goal is skill development, not live production hunting on unauthorized targets.
-
----
-
-## 2. Prerequisites & Installation
-
-### System Requirements
-- Python 3.10+
-- Kali Linux (recommended), Debian/Ubuntu, macOS, or WSL2
-- Ollama (recommended for full AI capabilities)
-- Docker (strongly recommended for safe lab targets)
-- Sufficient RAM (8 GB+ recommended when running LLM + swarm)
-
-### Installation
-
-```bash
-git clone https://github.com/webxos/phalanx.git
-cd phalanx
-chmod +x run.sh
-./run.sh
-```
-
-The `run.sh` script will:
-- Detect your platform
-- Install system dependencies and common Go-based tools
-- Optionally create a Python venv
-- Bootstrap directories, agents, and config
-- Optionally pull Ollama models and start Docker containers (including Metasploitable2)
-
-### Recommended Environment Variables for Learning
-
-```bash
-export PHALANX_USE_DOCKER=1
-export PHALANX_ALLOW_SHELL=0          # Keep disabled unless you fully understand the risk
-export PHALANX_DEFAULT_MODEL="qwen2.5:7b"   # or your preferred local model
-export PHALANX_SKIP_WINSTEALTH=1      # Skip if not on Windows/WSL and not needed
-```
-
-After setup, start the interactive interface:
-
-```bash
-python3 phalanx.py --tui
-# or simply
-python3 phalanx.py
-```
-
----
-
-## 3. Quick Start
-
-### Launch TUI / REPL
-```bash
-python3 phalanx.py --tui
-```
-
-### Basic Single Target Scan
-```bash
-python3 phalanx.py scan metasploitable2
-# or inside the REPL:
-/scan metasploitable2
-```
-
-### Safe Agentic Deep Dive (with guardrails)
-```bash
-python3 phalanx.py agentic metasploitable2 --guardrail --graph
-```
-
-### Full Swarm Campaign (CTF mode)
-```text
-/swarm scan metasploitable2 --mode ctf --follow --graph --raptor
-```
-
----
 
 ## 4. Core Architecture & Deep Features
 
