@@ -29,7 +29,6 @@
 9. [OPSEC, Guardrails & Best Practices](#9-opsec-guardrails--best-practices)
 10. [Verification, Benchmarks & Troubleshooting](#10-verification-benchmarks--troubleshooting)
 11. [Command Reference](#11-command-reference)
-12. [Further Resources](#12-further-resources)
 
 ---
 
