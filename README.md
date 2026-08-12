@@ -225,4 +225,4 @@ Environment variables can override many settings (e.g., `PHALANX_DEFAULT_MODEL`,
 
 ## License
 
-This project is licensed under the MIT License
+webXOS 2026 © MIT Open Sourced for Testing and Development
